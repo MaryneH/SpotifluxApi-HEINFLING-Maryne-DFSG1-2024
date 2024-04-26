@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les morceaux{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <table class="table">
+            <h1 class="mt-3" style="text-align:center">Toutes les tracks</h1>
+            <a href="{{ path('app_web_track_new') }}" class="btn btn-outline-dark" style="float:right">Ajouter <i class="fas fa-plus"></i></a>
+
+            <thead class="mt-5">
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Durée</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for track in tracks %}
+                <tr>
+                    <td>{{ track.id }}</td>
+                    <td><a href="{{ path('app_web_track_show', {'id': track.id}) }}">{{ track.title }}</a></td>
+                    <td>{{ track.duration }}</td>
+                    <td>
+                        <a href="{{ path('app_web_track_edit', {'id': track.id}) }}" class="btn btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{{ path('app_web_track_delete', {'id': track.id}) }}" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Aucun enregistrement trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

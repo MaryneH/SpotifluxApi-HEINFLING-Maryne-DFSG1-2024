@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Album index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <table class="table">
+            <h1 class="mt-3" style="text-align:center">Tous les albums</h1>
+            <a href="{{ path('app_web_album_new') }}" class="btn btn-outline-dark" style="float:right">Ajouter <i class="fas fa-plus"></i></a>
+
+            <thead class="mt-5">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Année</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for album in albums %}
+                <tr>
+                    <td>{{ album.id }}</td>
+                    <td><a href="{{ path('app_web_album_show', {'id': album.id}) }}">{{ album.name }}</a></td>
+                    <td>{{ album.year }}</td>
+                    <td>
+                        <a href="{{ path('app_web_album_edit', {'id': album.id}) }}" class="btn btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{{ path('app_web_album_delete', {'id': album.id}) }}" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Aucun enregistrement trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    <div>
+{% endblock %}

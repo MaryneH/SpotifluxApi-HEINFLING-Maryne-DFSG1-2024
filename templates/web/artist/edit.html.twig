@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de l'artiste {{ artist.name }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ path('app_web_artist_index') }}" class="btn btn-outline-dark mb-1 mt-2">Retour à la liste</a>
+            </div>
+        </div>
+        
+        <h1 class="text-center mb-2">Modification de l'artiste '{{ artist.name }}'</h1>
+
+        <form method="post">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    {{ form_widget(artist_form.name, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-6">
+                    {{ form_widget(artist_form.submit, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

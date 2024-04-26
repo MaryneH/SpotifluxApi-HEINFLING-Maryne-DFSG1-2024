@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Album{% endblock %}
+
+{% block body %}
+    <div class="container" style="text-align:center">
+        <table class="table">
+            <a href="{{ path('app_web_album_index') }}" style="float:left">Retour à la liste</a>
+            <h1 class="mb-5" style="text-align:center">Album {{ album.title }}</h1>
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ album.name }}</td>
+            </tr>
+            <tr>
+                <th>Année</th>
+                <td>{{ album.year }}</td>
+            </tr>
+            <tr>
+                <th>Actions</th>
+                <td>
+                    <a href="{{ path('app_web_album_edit', {'id': album.id}) }}" class="btn btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="{{ path('app_web_album_delete', {'id': album.id}) }}" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de l'album {{ album.name }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ path('app_web_album_index') }}" class="btn btn-outline-dark mb-1 mt-2">Retour à la liste</a>
+            </div>
+        </div>
+        
+        <h1 class="text-center mb-2">Modification de l'album '{{ album.name }}'</h1>
+
+        <form method="post">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    {{ form_widget(album_form.name, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    {{ form_widget(album_form.year, {'attr': {'class': 'form-control', 'placeholder': 'Année'}}) }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    {{ form_widget(album_form.artist, {'attr': {'class': 'form-control', 'placeholder': 'Artiste'}}) }}
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-6">
+                    {{ form_widget(album_form.submit, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

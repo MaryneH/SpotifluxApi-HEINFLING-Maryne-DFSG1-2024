@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification d'une track {{ track.title }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ path('app_web_track_index') }}" class="btn btn-outline-dark mb-1 mt-2">Retour à la liste</a>
+            </div>
+        </div>
+        
+        <h1 class="text-center mb-2">Modification de la track '{{ track.title }}'</h1>
+
+        <form method="post">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    {{ form_widget(track_form.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre'}}) }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    {{ form_widget(track_form.duration, {'attr': {'class': 'form-control', 'placeholder': 'Durée'}}) }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    {{ form_widget(track_form.album, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-6">
+                    {{ form_widget(track_form.submit, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

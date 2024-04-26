@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Track {{ track.title }}{% endblock %}
+
+{% block body %}
+    <div class="container" style="text-align:center">
+        <table class="table">
+            <a href="{{ path('app_web_track_index') }}" style="float:left">Retour à la liste</a>
+            <h1 class="mb-5" style="text-align:center">Track {{ track.title }}</h1>
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ track.id }}</td>
+                </tr>
+                <tr>
+                    <th>Titre</th>
+                    <td>{{ track.title }}</td>
+                </tr>
+                <tr>
+                    <th>Durée</th>
+                    <td>{{ track.duration }}</td>
+                </tr>
+                <tr>
+                    <th>Actions</th>
+                    <td>
+                        <a href="{{ path('app_web_track_edit', {'id': track.id}) }}" class="btn btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{{ path('app_web_track_delete', {'id': track.id}) }}" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
